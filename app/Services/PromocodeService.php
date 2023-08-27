@@ -23,7 +23,7 @@ class PromocodeService
     public static function generateCode(): string
     {
         // специально не используем символы "ловушки", которые можно спутать с другими типа 0-O I-1-l
-        // на случай если промокод будет вводится руками
+        // на случай если промокод будет вводиться руками
         $characters = '23456789qwertyuipasdfghjkzxcvbnmQWERTYUIPASDFGHJKLZXCVBNM';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -45,6 +45,8 @@ class PromocodeService
                 ->prepare('UPDATE `promocodes` SET `received_at` = NOW(), `ip` = ?, `user_id` = ? WHERE `received_at` IS NULL LIMIT 1');
             $updateStmt->execute([$ip, $userId]);
         } catch (\PDOException $err) {
+            // 1062 error code: Duplicate entry
+            // Duplicate Entry возникнет если в бд уже есть запись с таким user_id
             if ($err->errorInfo[1] !== 1062) {
                 throw $err;
             }
