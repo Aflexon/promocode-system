@@ -3,6 +3,6 @@ args=""
 
 tty -s && args="-it"
 
-docker-compose run ${args} \
+docker compose run ${args} \
   --user=$(id -u) \
  tests ./tests
