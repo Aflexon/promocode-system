@@ -17,7 +17,8 @@ do
     \`ip\` varchar(45) DEFAULT NULL,
     PRIMARY KEY (\`code\`),
     UNIQUE KEY \`idx_user\` (\`user_id\`),
-    KEY \`idx_ip\` (\`ip\`)
+    KEY \`idx_ip\` (\`ip\`),
+    KEY \`idx_received_at\` (\`received_at\`),
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;"
 done
 
