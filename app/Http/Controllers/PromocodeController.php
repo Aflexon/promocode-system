@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Cookies;
 use App\Http\Request;
 use App\Http\Response;
-use App\Http\Services\PromocodeService;
+use App\Services\PromocodeService;
 use Ramsey\Uuid\Uuid;
 
 class PromocodeController

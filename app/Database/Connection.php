@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Http\Database;
+namespace App\Database;
 
 use PDO;
 

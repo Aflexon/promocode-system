@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Services\PromocodeService;
+use App\Services\PromocodeService;
 use PHPUnit\Framework\TestCase;
 
 class PromocodeServiceTest extends TestCase
 {
     protected PromocodeService $promocodeService;
-    protected \App\Http\Database\Connection $connection;
+    protected \App\Database\Connection $connection;
     protected \Faker\Generator $faker;
 
     public function __construct(string $name)
     {
         $this->promocodeService = new PromocodeService();
-        $this->connection = \App\Http\Database\Connection::getInstance();
+        $this->connection = \App\Database\Connection::getInstance();
         $this->faker = \Faker\Factory::create();
         parent::__construct($name);
     }

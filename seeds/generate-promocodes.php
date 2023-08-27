@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$connection = \App\Http\Database\Connection::getInstance();
+$connection = \App\Database\Connection::getInstance();
 
 const PROMOCODE_COUNTS = 500000;
 
@@ -17,6 +17,6 @@ echo "Creating promocodes. It may take up to 5 minutes " . PHP_EOL;
 $connection->beginTransaction();
 $insertStmt = $connection->prepare('INSERT INTO `promocodes` (code) VALUES (?)');
 for ($i = 0; $i < PROMOCODE_COUNTS; $i++) {
-    $insertStmt->execute([\App\Http\Services\PromocodeService::generateCode()]);
+    $insertStmt->execute([\App\Services\PromocodeService::generateCode()]);
 }
 $connection->commit();
