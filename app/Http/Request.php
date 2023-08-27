@@ -14,7 +14,7 @@ class Request {
             $globals['REQUEST_METHOD'] ?? 'GET',
             $globals['REQUEST_URI'] ?? '',
             $globals,
-            Cookies::parseHeader(getallheaders()['Cookie'])
+            Cookies::parseHeader(getallheaders()['Cookie'] ?? '')
         );
     }
 
